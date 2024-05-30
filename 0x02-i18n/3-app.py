@@ -32,6 +32,7 @@ app.url_map.strict_slashes = False  # Disable strict slashes
 # Instantiate Babel and store it in a module-level variable named babel
 babel = Babel(app)
 
+
 @babel.localeselector
 def get_locale():
     '''
@@ -48,6 +49,7 @@ def get_locale():
     '''
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
+
 @app.route('/')
 def index():
     '''
@@ -60,6 +62,7 @@ def index():
         str: Rendered HTML content of '1-index.html'.
     '''
     return render_template("3-index.html")
+
 
 if __name__ == '__main__':
     # Run the Flask application in debug mode.
